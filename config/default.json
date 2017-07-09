@@ -1,0 +1,19 @@
+{
+  "database": {
+    "mongodb": {
+      "host": "localhost",
+      "name": "lbryprox-default",
+      "debug": false
+    }
+  },
+  "logging": {
+    "console": {
+      "enabled": true,
+      "level": "debug"
+    },
+    "file": {
+      "enabled": true,
+      "level": "info"
+    }
+  }
+}

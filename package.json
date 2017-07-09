@@ -1,0 +1,21 @@
+{
+  "name": "lbryprox",
+  "version": "1.0.0",
+  "description": "Cool stuff for lbry coming soon....",
+  "main": "server.js",
+  "repository": "https://github.com/filipnyquist/lbryprox",
+  "author": "filipnyquist <filip@lbry.io>",
+  "license": "MIT",
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "bluebird": "^3.5.0",
+    "config": "^1.26.1",
+    "glob-promise": "^3.1.0",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.1",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "pretty-error": "^2.1.1",
+    "winston": "^2.3.1"
+  }
+}
