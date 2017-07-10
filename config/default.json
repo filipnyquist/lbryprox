@@ -6,6 +6,9 @@
       "debug": false
     }
   },
+  "web": {
+    "port": 3000
+  },
   "logging": {
     "console": {
       "enabled": true,

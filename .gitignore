@@ -40,3 +40,6 @@ bin/
 
 # backups
 backups/
+
+#lbry daemon stuff
+daemon/*

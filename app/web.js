@@ -1,30 +1,31 @@
-'use strict';
+const Promise = require('bluebird')
+const winston = require('winston')
+const mongoose = require('mongoose')
+const path = require('path')
+const config = require('config')
+const glob = require('glob-promise')
+const forEach = require('lodash/forEach')
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const app = express()
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
 
-const Promise = require('bluebird');
-const winston = require('winston');
-const mongoose = require('mongoose');
-const path = require('path');
-const config = require('config');
-const glob = require('glob-promise');
-const forEach = require('lodash/forEach');
-const express = require('express');
+function init (db) {
+  app.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/index.html`)
+  })
+  // uncomment after placing your favicon in /public
+  // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: false }))
+  app.use(cookieParser())
+  app.use(express.static(path.join(__dirname, '../public')))
 
-function load () {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const app = express();
-
-      app.get('/', function (req, res) {
-        res.send('Hello World!')
-      });
-      app.listen(3000, function () {
-        winston.info('[WEB] Web interface listening at');
-      });
-      return resolve();
-    } catch (err) {
-      return reject(err);
-    }
-  });
+  http.listen(config.get('web.port'), () => {
+    winston.info(`[WEB] Webserver listening on *:${config.get('web.port')}`)
+  })
 }
 
-module.exports = exports = load;
+module.exports = exports = init

@@ -1,7 +1,7 @@
 {
   "database": {
     "mongodb": {
-      "name": "hypeserv-development"
+      "name": "lbryprox-development"
     }
   }
 }
